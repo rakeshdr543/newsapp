@@ -1,13 +1,15 @@
-import React, { useState ,useEffect} from 'react';
-import axios from 'axios';
+import Axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 import NewsScreen from './NewsScreen';
 
-function EnglishNews() {
+function Uknews() {
+     
     const [articles,setArticles]=useState([]);
     const [keyword,setKeyword]=useState('');
 
     const fetchData=async(keyword)=>{
-        const {data}=await axios.get(`https://gnews.io/api/v4/search?q=${keyword}&country=in&token=31794528b172faa08627769e91e7bf84`)
+        const {data}=await Axios.get(`https://gnews.io/api/v4/search?q=${keyword}&country=uk&token=31794528b172faa08627769e91e7bf84`)
         const item=data.articles;
         setArticles(item)
 
@@ -26,13 +28,23 @@ function EnglishNews() {
 
     return (
         <div>
+        <div className='prev'><Link to ='/us'>
+         Previous Page
+         </Link>
+        </div>
+       
+        <div className='search' >
         <form onSubmit={submitHandler}>
-            <input onChange={handleChange}/>
-            <button >Search</button>
-        </form>
+             <input onChange={handleChange}/>
+            <button type='submit' >Search</button>
+         </form>
+        </div>
+         
+       
         <NewsScreen articles={articles}/>            
         </div>
     )
 }
 
-export default EnglishNews
+
+export default Uknews

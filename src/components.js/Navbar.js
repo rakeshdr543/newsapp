@@ -2,15 +2,32 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 function Navbar() {
+    const navStyle={
+        color:'white'
+    }
     return (
         <div>
         <nav>
         <ul>
-        <li>
-        <Link to='/'>India</Link>
-        </li>
-        <li><Link to='/us'>United States</Link></li>
-        <li><Link to='/uk'>United Kingdom</Link></li>
+        <div>
+        <Link to='/'>
+
+       
+         <span style={navStyle}>India</span>
+        </Link>
+
+        </div>
+        <div>
+        <Link to='/us'>
+        <span style={navStyle}>United States</span></Link>
+
+        </div>
+        <div>
+        <Link to='/uk'><span style={navStyle}>United Kingdom</span></Link>
+
+        </div>
+       
+       
         </ul>
         </nav>    
         </div>
